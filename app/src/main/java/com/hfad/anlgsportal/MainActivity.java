@@ -119,6 +119,8 @@ public void buttonPressed (View view){
 
 public void inputAddress (String input){
 
+    spinner0 = (Spinner) findViewById(R.id.spinner);
+
     AddressService addressService = ApiUtils.getAddressService();
     Call<List<Address>> getAllAddresses = addressService.getAllAddresses(input);
 

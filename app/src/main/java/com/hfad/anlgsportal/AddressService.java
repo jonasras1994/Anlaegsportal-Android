@@ -9,10 +9,13 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface AddressService {
 
-    @GET("autocomplete?q={address} &fuzzy=")
-    Call<List<Address>> getAllAddresses(@Path("address") String address);
+    @GET("autocomplete")
+    Call<List<Address>> getAllAddresses(@Query("q") String address);
+
+    //?q= &fuzzy=
 }
 
