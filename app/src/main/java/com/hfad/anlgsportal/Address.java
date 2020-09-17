@@ -1,8 +1,15 @@
 package com.hfad.anlgsportal;
 
-public class Address {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-private String address;
+import java.io.Serializable;
+
+public class Address implements Serializable {
+
+    @SerializedName("address")
+    @Expose
+    private String address;
 
     public Address(String address) {
         this.address = address;

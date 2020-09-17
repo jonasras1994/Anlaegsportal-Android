@@ -36,11 +36,17 @@
             android:id="@+id/edittext"
             android:background="#ffffff" />
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_below="@id/edittext"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="buttonPressed"
-            android:layout_below="@+id/edittext"
+            android:layout_below="@+id/spinner"
             android:text="Søg" />
 
     </RelativeLayout>

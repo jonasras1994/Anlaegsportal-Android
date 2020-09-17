@@ -1,20 +1,33 @@
 package com.hfad.anlgsportal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
-import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
 
     private static final String LOG_TAG = "MINE";
+    private static final String ADDRESS = "ADDRESS";
+    private Spinner spinner0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.lokationButton);
         button.setOnClickListener(buttonHandler);
         imageView = (ImageView) findViewById(R.id.mapImageView);
+        EditText editText = findViewById(R.id.edittext);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+//                String input = editText.getText().toString();
+                inputAddress(editable.toString());
+
+            }
+        });
 
 
         /*Application application = getApplication();
@@ -82,5 +117,60 @@ public void buttonPressed (View view){
         startActivity(intent);
 }
 
-private void populateRecyclerView (List<Adress>)
+public void inputAddress (String input){
+
+    AddressService addressService = ApiUtils.getAddressService();
+    Call<List<Address>> getAllAddresses = addressService.getAllAddresses(input);
+
+    getAllAddresses.enqueue(new Callback<List<Address>>() {
+        @Override
+        public void onResponse(Call<List<Address>> call, Response<List<Address>> response) {
+            if (response.isSuccessful()) {
+                List<Address> allAddresses = response.body();
+//                populateRecyclerView(allAddresses);
+                ArrayAdapter<Address> adapter0 = new ArrayAdapter<Address>(MainActivity.this, android.R.layout.simple_spinner_item, allAddresses);
+                adapter0.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                spinner0.setAdapter(adapter0);
+                Log.i("AAA","spinner0");
+            } else {
+                String message = "Problem " + response.code() + " " + response.message();
+                Log.d(LOG_TAG, message);
+                Toast.makeText(getApplicationContext(), "Nope...", Toast.LENGTH_LONG).show();
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<Address>> call, Throwable t) {
+
+        }
+    });
+}
+
+
+    private void populateRecyclerView (List<Address> allAddresses) {
+        RecyclerView recyclerView = findViewById(R.id.edittext);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerViewSimpleAdapter adapter = new RecyclerViewSimpleAdapter<>(allAddresses);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, Object item) {
+                Address address = (Address) item;
+                Log.d(LOG_TAG, item.toString());
+                Intent intent = new Intent(MainActivity.this, selectedAddress.class);
+                intent.putExtra(MainActivity.ADDRESS, address);
+                Log.d(LOG_TAG, "putExtra " + address.toString());
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+    }
+/*    public void etHeltAlmindeligtNavn (Address item) {
+        Address address = (Address) item;
+        Log.d(LOG_TAG, item.toString());
+        Intent intent = new Intent(MainActivity.this, selectedAddress.class);
+        intent.putExtra(MainActivity.ADDRESS, address);
+        Log.d(LOG_TAG, "putExtra " + address.toString());
+        startActivity(intent);
+    }*/
 }
