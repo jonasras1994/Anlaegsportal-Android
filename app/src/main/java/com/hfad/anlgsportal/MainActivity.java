@@ -1,5 +1,6 @@
 package com.hfad.anlgsportal;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.location.Geocoder;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "MINE";
     private static final String ADDRESS = "ADDRESS";
     private Spinner spinner0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     View.OnClickListener buttonHandler = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -112,44 +115,49 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-public void buttonPressed (View view){
-        Intent intent = new Intent (this, General.class);
+    public void buttonPressed(View view) {
+        Intent intent = new Intent(this, General.class);
         startActivity(intent);
-}
+    }
 
-public void inputAddress (String input){
+    public void inputAddress(String input) {
 
-    spinner0 = (Spinner) findViewById(R.id.spinner);
+        spinner0 = (Spinner) findViewById(R.id.spinner);
 
-    AddressService addressService = ApiUtils.getAddressService();
-    Call<List<Address>> getAllAddresses = addressService.getAllAddresses(input);
+        AddressService addressService = ApiUtils.getAddressService();
+        Call<List<Address>> getAllAddresses = addressService.getAllAddresses(input);
 
-    getAllAddresses.enqueue(new Callback<List<Address>>() {
-        @Override
-        public void onResponse(Call<List<Address>> call, Response<List<Address>> response) {
-            if (response.isSuccessful()) {
-                List<Address> allAddresses = response.body();
-//                populateRecyclerView(allAddresses);
-                ArrayAdapter<Address> adapter0 = new ArrayAdapter<Address>(MainActivity.this, android.R.layout.simple_spinner_item, allAddresses);
-                adapter0.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                spinner0.setAdapter(adapter0);
-                Log.i("AAA","spinner0");
-            } else {
-                String message = "Problem " + response.code() + " " + response.message();
-                Log.d(LOG_TAG, message);
-                Toast.makeText(getApplicationContext(), "Nope...", Toast.LENGTH_LONG).show();
+        getAllAddresses.enqueue(new Callback<List<Address>>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(Call<List<Address>> call, Response<List<Address>> response) {
+                if (response.isSuccessful()) {
+                    List<Address> allAddresses = response.body();
+                    List<String> allAddressLines = new ArrayList<String>();
+                    allAddresses.forEach(address -> {
+                        allAddressLines.add(address.getTekst());
+                    });
+
+                    ArrayAdapter<String> adapter0 = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, allAddressLines);
+                    adapter0.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+                    spinner0.setAdapter(adapter0);
+                    Log.i("AAA", "spinner0");
+                } else {
+                    String message = "Problem " + response.code() + " " + response.message();
+                    Log.d(LOG_TAG, message);
+                    Toast.makeText(getApplicationContext(), "Nope...", Toast.LENGTH_LONG).show();
+                }
             }
-        }
 
-        @Override
-        public void onFailure(Call<List<Address>> call, Throwable t) {
+            @Override
+            public void onFailure(Call<List<Address>> call, Throwable t) {
 
-        }
-    });
-}
+            }
+        });
+    }
 
 
-    private void populateRecyclerView (List<Address> allAddresses) {
+    private void populateRecyclerView(List<Address> allAddresses) {
         RecyclerView recyclerView = findViewById(R.id.edittext);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerViewSimpleAdapter adapter = new RecyclerViewSimpleAdapter<>(allAddresses);
