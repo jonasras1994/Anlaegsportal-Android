@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="vertical"
+
+        android:background="#1E88E5">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anlægsportal"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_centerInParent="true"
+            android:hint="Indtast adresse her.."
+            android:id="@+id/edittext"
+            android:background="#ffffff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buttonPressed"
+            android:layout_below="@+id/edittext"
+            android:text="Søg" />
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:text="Lokation:"
+        android:textSize="25dp"
+        android:id="@+id/lokation"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:id="@+id/space1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/space1"
+        android:id="@+id/lokationButton"
+        android:text="Min lokalitet"/>
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/lokationButton"
+        android:id="@+id/space2"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/space2"
+        android:id="@+id/mapImageView"
+        android:src="@drawable/dkudklip" />
+</RelativeLayout>
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geocoding: Location name -> (lat, long)"
+        style="@android:style/TextAppearance.Large" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_addresses_textview"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@android:style/TextAppearance.Large"
+        android:text="Reverse geocoding: (lat, long) -> location name(s)"/>
+
+    <TextView
+        android:id="@+id/main_position_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>-->
+
+</LinearLayout>
