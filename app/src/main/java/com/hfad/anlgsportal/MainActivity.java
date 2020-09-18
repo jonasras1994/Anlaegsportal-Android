@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public void buttonPressed(View view) {
-        Intent intent = new Intent(this, General.class);
+    public void searchButtonPressed(View view) {
+        Intent intent = new Intent(this, AddressResult.class);
         startActivity(intent);
     }
 

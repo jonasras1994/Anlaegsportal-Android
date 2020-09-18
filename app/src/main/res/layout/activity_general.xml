@@ -10,64 +10,66 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:orientation="vertical"
-        android:background="#1E88E5">
+        android:background="#1E88E5"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!--<Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="<- Search"
+                android:id="@+id/searchButton"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_blue_light"/>-->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
                 android:text="Anlægsportal"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_centerInParent="true"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-            <Button
-                android:id="@+id/qrButton"
-                android:scaleType="fitCenter"
-                android:background="@android:color/holo_blue_light"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/qr"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"/>
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/qrImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/qricon" />
+
+            <ImageView
                 android:id="@+id/imageView"
-                />
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
             <TextView
+                android:id="@+id/qrResult"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/qrResult"/>
+                android:layout_height="wrap_content" />
         </RelativeLayout>
 
 
-
         <TextView
-            android:layout_marginLeft="12dp"
             android:layout_width="1000dp"
             android:layout_height="40dp"
-            android:gravity="left"
-            android:text="Diving bottle"
-            android:textStyle="bold"
+            android:layout_marginLeft="12dp"
             android:padding="10dp"
+            android:text="Diving bottle"
+            android:textColor="@android:color/white"
             android:textSize="15dp"
-            android:textColor="@android:color/white" />
+            android:textStyle="bold" />
 
 
         <RelativeLayout
@@ -75,13 +77,11 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_marginLeft="20dp"
                 android:layout_width="60dp"
                 android:layout_height="80dp"
-                android:layout_gravity="left"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/dykkerflaske"/>
-
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/dykkerflaske" />
 
 
         </RelativeLayout>
@@ -89,7 +89,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,32 +100,32 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:drawableLeft="@drawable/general"
                 android:drawablePadding="5dp"
-                android:text="General"/>
+                android:text="General"
+                android:textColor="@android:color/white" />
 
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="reviewButtonPressed"
-                android:textColor="@android:color/white"
                 android:backgroundTint="@android:color/holo_blue_light"
                 android:drawableLeft="@drawable/review"
+                android:drawablePadding="5dp"
+                android:onClick="reviewButtonPressed"
                 android:text="Review"
-                android:drawablePadding="5dp"/>
+                android:textColor="@android:color/white" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:backgroundTint="@android:color/holo_blue_light"
+                android:drawableLeft="@drawable/documentation"
+                android:drawablePadding="5dp"
                 android:onClick="documentationButtonPressed"
                 android:text="Documentation"
-                android:drawableLeft="@drawable/documentation"
-                android:drawablePadding="5dp"/>
+                android:textColor="@android:color/white" />
             <!--Ændrer størrelser på Ikoner -->
 
         </LinearLayout>
@@ -134,261 +134,278 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="General Information"
-                android:textStyle="bold"
                 android:textSize="15dp"
-                />
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Name"
                 android:textColor="@android:color/darker_gray"
-                android:text="Name"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diving Bottle"/>
+                android:text="Diving Bottle" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Produkt type"
                 android:textColor="@android:color/darker_gray"
-                android:text="Produkt type"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diving Bottle"/>
+                android:text="Diving Bottle" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Produkt mærke"
                 android:textColor="@android:color/darker_gray"
-                android:text="Produkt mærke"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Worthington Idustries"/>
+                android:text="Worthington Idustries" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Produkt model"
                 android:textColor="@android:color/darker_gray"
-                android:text="Produkt model"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CARBONDIVE 300"/>
+                android:text="CARBONDIVE 300" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Pris"
                 android:textColor="@android:color/darker_gray"
-                android:text="Pris"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3414,00 DKK"/>
+                android:text="3414,00 DKK" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Dato for udløb af garanti"
                 android:textColor="@android:color/darker_gray"
-                android:text="Dato for udløb af garanti"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/12-2020"/>
+                android:text="11/12-2020" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Ansvarlig"
                 android:textColor="@android:color/darker_gray"
-                android:text="Ansvarlig"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jonas Rasmussen"/>
+                android:text="Jonas Rasmussen" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Kommentarer"
                 android:textColor="@android:color/darker_gray"
-                android:text="Kommentarer"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Flasken er lavet af mega cool carbon, se om den kan snuppes med hjem."/>
+                android:text="Flasken er lavet af mega cool carbon, se om den kan snuppes med hjem." />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Registreringsdato"
                 android:textColor="@android:color/darker_gray"
-                android:text="Registreringsdato"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10/9-2020"/>
+                android:text="10/9-2020" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Installationsdato"
                 android:textColor="@android:color/darker_gray"
-                android:text="Installationsdato"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/9-2020"/>
+                android:text="11/9-2020" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Dato for sidste eftersyn"
                 android:textColor="@android:color/darker_gray"
-                android:text="Dato for sidste eftersyn"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/9-2020"/>
+                android:text="11/9-2020" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Frekvens for eftersyn (hvor ofte)"
                 android:textColor="@android:color/darker_gray"
-                android:text="Frekvens for eftersyn (hvor ofte)"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="24 mnd"/>
+                android:text="24 mnd" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Checkliste"
                 android:textColor="@android:color/darker_gray"
-                android:text="Checkliste"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pressure Check"/>
+                android:text="Pressure Check" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Adresse"
                 android:textColor="@android:color/darker_gray"
-                android:text="Adresse"/>
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Penselstrøget 30, 4000 Roskilde"/>
+                android:text="Penselstrøget 30, 4000 Roskilde" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="QR-kode"
                 android:textColor="@android:color/darker_gray"
-                android:text="QR-kode"/>
+                android:textStyle="bold" />
+
             <ImageButton
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
             <!--    android:src="qr.png"/>-->
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:text="Ejer"
                 android:textColor="@android:color/darker_gray"
-                android:text="Ejer"/>
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hr. Nielsen"/>
+                android:text="Hr. Nielsen" />
 
 
         </LinearLayout>

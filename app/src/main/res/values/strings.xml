@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Anlægsportal</string>
     <string name="title_activity_maps">Map</string>
+    <string name="AnlægPåAdresse1">NAME: \t\t\t\t\t\t\t\tDiving bottle\nRESPONSIBLE: \t\tB-Tech\nDUE: \t\t\t\t\t\t\t\t\t\t11/9-2020</string>
+    <string name="AnlægPåAdresse2">NAME: \t\t\t\t\t\t\t\tDiving bottle\nRESPONSIBLE: \t\tB-Tech\nDUE: \t\t\t\t\t\t\t\t\t\t11/9-2022</string>
+
 </resources>
+

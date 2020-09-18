@@ -29,8 +29,8 @@ public class General extends AppCompatActivity {
         setContentView(R.layout.activity_general);
 
         this.imageView = (ImageView)this.findViewById(R.id.imageView);
-        Button photoButton = (Button) this.findViewById(R.id.qrButton);
-        photoButton.setOnClickListener(new View.OnClickListener()
+        ImageView imageView1 = (ImageView) findViewById(R.id.qrImageView);
+        imageView1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
