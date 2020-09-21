@@ -46,6 +46,7 @@ public class General extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     @Override

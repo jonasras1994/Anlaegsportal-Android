@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = "MINE";
     private static final String ADDRESS = "ADDRESS";
     private Spinner spinner0;
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.lokationButton);
         button.setOnClickListener(buttonHandler);
         imageView = (ImageView) findViewById(R.id.mapImageView);
-        EditText editText = findViewById(R.id.edittext);
+        editText = findViewById(R.id.edittext);
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -116,7 +117,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void searchButtonPressed(View view) {
+
         Intent intent = new Intent(this, AddressResult.class);
+        String address = editText.getText().toString();
+        intent.putExtra("ADDRESS", address);
         startActivity(intent);
     }
 
