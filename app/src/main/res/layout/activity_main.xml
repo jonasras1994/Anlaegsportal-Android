@@ -11,85 +11,94 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:orientation="vertical"
+        android:background="#1E88E5"
 
-        android:background="#1E88E5">
+        android:orientation="vertical">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anlægsportal"
             android:layout_centerHorizontal="true"
-            android:textStyle="bold"
             android:padding="10dp"
-            android:textSize="20dp"
+            android:text="Anlægsportal"
             android:textColor="@android:color/white"
-            />
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:onClick="qrButtonPressed"
+            android:scaleType="fitCenter"
+            android:src="@drawable/qricon" />
 
         <EditText
+            android:id="@+id/edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_centerInParent="true"
-            android:hint="Indtast adresse her.."
-            android:id="@+id/edittext"
-            android:background="#ffffff" />
+            android:layout_gravity="center_vertical"
+            android:background="#ffffff"
+            android:hint="Indtast adresse her.." />
 
         <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner"
-            android:layout_below="@id/edittext"/>
+            android:layout_below="@id/edittext" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="searchButtonPressed"
             android:layout_below="@+id/spinner"
+            android:onClick="searchButtonPressed"
             android:text="Søg" />
 
     </RelativeLayout>
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_gravity="fill_vertical"
-    android:orientation="horizontal">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|top"
-        android:text="Lokation:"
-        android:textSize="25dp"
-        android:id="@+id/lokation"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        android:orientation="horizontal">
 
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="50dp"
-        android:id="@+id/space1"/>
+        <TextView
+            android:id="@+id/lokation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:text="Lokation:"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/space1"
-        android:id="@+id/lokationButton"
-        android:text="Min lokalitet"/>
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="20dp"
+            android:layout_height="50dp" />
 
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/lokationButton"
-        android:id="@+id/space2"/>
+        <Button
+            android:id="@+id/lokationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/space1"
+            android:text="Min lokalitet" />
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_below="@+id/space2"
-        android:id="@+id/mapImageView"
-        android:src="@drawable/dkudklip" />
-</RelativeLayout>
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/lokationButton" />
+
+        <ImageView
+            android:id="@+id/mapImageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_below="@+id/space2"
+            android:src="@drawable/dkudklip" />
+    </RelativeLayout>
     <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

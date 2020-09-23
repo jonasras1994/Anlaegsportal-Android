@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddressResult"></activity>
+        <activity android:name=".QRActivity"></activity>
+        <activity android:name=".AddressResult" />
         <activity android:name=".selectedAddress" />
         <!--
              The API key for Google maps-based APIs is defined as a string resource.

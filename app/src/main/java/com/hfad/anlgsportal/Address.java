@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class Address implements Serializable {
 
     @SerializedName("id")
@@ -15,10 +12,10 @@ public class Address implements Serializable {
     private String id;
     @SerializedName("status")
     @Expose
-    private Integer status;
+    private Installation status;
     @SerializedName("darstatus")
     @Expose
-    private Integer darstatus;
+    private Installation darstatus;
     @SerializedName("vejkode")
     @Expose
     private String vejkode;
@@ -88,19 +85,19 @@ public class Address implements Serializable {
         this.id = id;
     }
 
-    public Integer getStatus() {
+    public Installation getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Installation status) {
         this.status = status;
     }
 
-    public Integer getDarstatus() {
+    public Installation getDarstatus() {
         return darstatus;
     }
 
-    public void setDarstatus(Integer darstatus) {
+    public void setDarstatus(Installation darstatus) {
         this.darstatus = darstatus;
     }
 

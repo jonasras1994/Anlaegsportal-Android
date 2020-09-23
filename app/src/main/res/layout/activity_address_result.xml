@@ -21,8 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_light"
-                android:onClick="searchButtonClicked"
-                android:text="Search"
+                android:onClick="backButtonPressed"
+                android:text="Back"
                 android:textColor="@android:color/white" />
 
             <TextView
@@ -72,6 +72,19 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/installationResultsSwipeRefresh"
+        android:layout_weight="1">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/installationsRecyclerView"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <RelativeLayout
         android:clickable="true"
