@@ -97,6 +97,7 @@
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:layout_below="@+id/space2"
+            android:onClick="searchButtonPressed"
             android:src="@drawable/dkudklip" />
     </RelativeLayout>
     <!--<TextView

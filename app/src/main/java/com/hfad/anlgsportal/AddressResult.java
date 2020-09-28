@@ -39,16 +39,13 @@ public class AddressResult extends AppCompatActivity {
         TextView addressResult = findViewById(R.id.addressResult);
         addressResult.setText(address);
 
+        installationResults();
+
         SwipeRefreshLayout refreshLayout = findViewById(R.id.installationResultsSwipeRefresh);
         refreshLayout.setOnRefreshListener(() -> {
             installationResults();
             refreshLayout.setRefreshing(false);
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     public void installationResults() {
@@ -64,7 +61,9 @@ public class AddressResult extends AppCompatActivity {
                     List<Installation> allInstallations = response.body();
                     List<String> allInstallationInformation = new ArrayList<>();
                     allInstallations.forEach(installation ->{
-                        allInstallationInformation.add(installation.getProductType());
+                        String str = "";
+                        str += "Product Type:\t\t" + installation.getProductType() + "\n" + "Responsible:\t\t\t" + installation.getResponsible() + "\n" + "Due date:\t\t\t\t\t\t" + installation.getWarrantyDate() + "\n";
+                        allInstallationInformation.add(str);
                     });
                     populateRecyclerView(allInstallationInformation);
                 } else {
@@ -80,12 +79,6 @@ public class AddressResult extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    public void buttonClicked(View view) {
-        Intent listIntent = new Intent(this, General.class);
-        startActivity(listIntent);
     }
 
     public void backButtonPressed(View view) {

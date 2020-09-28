@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        onPause();
-
         /*Application application = getApplication();
         Geocoder geocoder = new Geocoder(application);
         int maxResults = 4;
