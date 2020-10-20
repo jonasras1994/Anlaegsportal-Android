@@ -79,7 +79,7 @@
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="SCAN DIN QR KODE HER BROW"
+        android:layout_height="wrap_content"
+        android:text="Scan QR kode"
         android:onClick="scanQr"/>
 </LinearLayout>
