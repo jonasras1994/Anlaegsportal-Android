@@ -54,7 +54,7 @@ public class Installation implements Serializable {
     private Object qrId;
     @SerializedName("owner")
     @Expose
-    private Object owner;
+    private Owner owner;
 
     public java.lang.Integer getInstallationId() {
         return installationId;
@@ -176,12 +176,34 @@ public class Installation implements Serializable {
         this.qrId = qrId;
     }
 
-    public Object getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 
-    public void setOwner(Object owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+
+    public class Owner{
+        @SerializedName("ownerId")
+        @Expose
+        int ownerId;
+        @SerializedName("name")
+        @Expose
+        String name;
+        @SerializedName("email")
+        @Expose
+        String email;
+
+        public int getOwnerId() { return this.ownerId; }
+        public void setOwnerId(int ownerId) { this.ownerId = ownerId; }
+
+        public String getName() { return this.name; }
+        public void setName(String name) { this.name = name; }
+
+        public String getEmail() { return this.email; }
+        public void setEmail(String email) { this.email = email; }
     }
 
 }

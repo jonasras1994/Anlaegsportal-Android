@@ -66,6 +66,7 @@ public class AddressResult extends AppCompatActivity {
                         allInstallationInformation.add(str);
                     });
                     populateRecyclerView(allInstallationInformation);
+
                 } else {
                     String message = "Problem " + response.code() + " " + response.message();
                     Log.d(LOG_TAG, message);
