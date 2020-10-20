@@ -87,6 +87,11 @@ public class AddressResult extends AppCompatActivity {
         startActivity(backIntent);
     }
 
+    public void buttonClicked(View view) {
+        Intent backIntent = new Intent(this, General.class);
+        startActivity(backIntent);
+    }
+
     private void populateRecyclerView(List<String> allInstallations) {
         RecyclerView recyclerView = findViewById(R.id.installationsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
