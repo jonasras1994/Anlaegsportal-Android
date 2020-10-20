@@ -65,7 +65,7 @@ public class AddressResult extends AppCompatActivity {
                         str += "Product Type:\t\t" + installation.getProductType() + "\n" + "Responsible:\t\t\t" + installation.getResponsible() + "\n" + "Due date:\t\t\t\t\t\t" + installation.getWarrantyDate() + "\n";
                         allInstallationInformation.add(str);
                     });
-                    populateRecyclerView(allInstallationInformation);
+                    populateRecyclerView(allInstallations);
 
                 } else {
                     String message = "Problem " + response.code() + " " + response.message();
@@ -92,7 +92,7 @@ public class AddressResult extends AppCompatActivity {
         startActivity(backIntent);
     }
 
-    private void populateRecyclerView(List<String> allInstallations) {
+    private void populateRecyclerView(List<Installation> allInstallations) {
         RecyclerView recyclerView = findViewById(R.id.installationsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerViewSimpleAdapter adapter = new RecyclerViewSimpleAdapter<>(allInstallations);

@@ -185,7 +185,7 @@ public class Installation implements Serializable {
     }
 
 
-    public class Owner{
+    public class Owner implements Serializable {
         @SerializedName("ownerId")
         @Expose
         int ownerId;
